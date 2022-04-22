@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <!-- Framework Phaser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.19.0/phaser-arcade-physics.min.js"></script>
+</head>
+
+ <!--------------------------------------- Feuille de style (CSS) ------------------------------------->
+<style>
+    body{
+        /*background-color: darkgray;*/
+        /*background-color: DarkSlateGray;*/
+        background-color: #0cbaba;
+        background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+
+        text-align: center;
+        
+    }
+</style>
+<!----------------------------------------------------------------------------------------------------->
+
+<body>
+    <h1 style="color:black;"><FONT face="Times New Roman"><b>UVSQ_______________*SNAKE*_______________UVSQ</b></FONT></h1>
+    <p style="color:green;"> Diriger le serpent vers les pommes vertes et bleues ! </p>
+    <div id="phaser-game">
+    <!-- On appelle le fichier singlephase.js contenant le code javascript de configuration du jeu -->
+    <script src="js/singlephase.js" type="module"></script>
+    </div>
+</body>
+</html>
+
