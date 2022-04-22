@@ -1,26 +1,26 @@
-### SNAKE
+# SNAKE
 
-# <u> INTERFACE 💻</u>
+## <u> INTERFACE 💻</u>
 
 ![Interfece de l'application](images/snake.png)
 
-# <u> PRINCIPE DU JEU 💻</u> 
+## <u> PRINCIPE DU JEU 💻</u> 
 
 Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pommes) pour les manger 
 
-En l’occurrence quand le serpent passe sur : 
-  > une pomme verte, il s'étend en vert + augmentation du score avec 1 point + son spécial pour cet évenement.
-  > une pomme bleue, il s'étend en bleu + augmentation du score avec 5 point + son spécial pour cet évenement.
-  > une pomme rouge, il s'étend en rouge + diminution du score avec 1 point + son spécial pour cet évenement.
-PS: le meilleure score est aussi enregistré pour le joueur (stockage local).
+<br> En l’occurrence quand le serpent passe sur : 
+  <br> > une pomme verte, il s'étend en vert + augmentation du score avec 1 point + son spécial pour cet évenement.
+  <br> > une pomme bleue, il s'étend en bleu + augmentation du score avec 5 point + son spécial pour cet évenement.
+  <br> > une pomme rouge, il s'étend en rouge + diminution du score avec 1 point + son spécial pour cet évenement.
+<br> PS: le meilleure score est aussi enregistré pour le joueur (stockage local).
 
-Le jeu s'arrète lorsque le serpent se cogne : 
-  >  l'obstacle (son spécial pour cet évenement).
-  >  les extrimités du terrain du jeu / les murs (son spécial pour cet évenement). 
-  >  lui-meme (son spécial pour cet évenement). 
+<br> Le jeu s'arrète lorsque le serpent se cogne : 
+  <br> >  l'obstacle (son spécial pour cet évenement).
+  <br> >  les extrimités du terrain du jeu / les murs (son spécial pour cet évenement). 
+  <br> >  lui-meme (son spécial pour cet évenement). 
            
 
-# <u> LANCEMENT DU JEU 💻</u>
+## <u> LANCEMENT DU JEU 💻</u>
 
 1. #### Node JS
 
@@ -55,15 +55,15 @@ Le jeu s'arrète lorsque le serpent se cogne :
 
 3. #### Serveur (taper dans le terminal)
 
-     ```
-     node index.js 
-     ```
+      ```
+      node index.js 
+      ```
 
 4. #### Client (taper dans le Navigateur)
 
-     ```
-     http://localhost:3001/ 
-     ```
+      ```
+      http://localhost:3001/ 
+      ```
 ------
 
 
