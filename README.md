@@ -2,7 +2,7 @@
 
 ## <u> INTERFACE 💻</u>
 
-![Interfece de l'application](images/snake.png)
+![Interfece de l'application](snake.png)
 
 ## <u> PRINCIPE DU JEU 💻</u> 
 
@@ -15,7 +15,7 @@ Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pomme
 <br> PS: le meilleure score est aussi enregistré pour le joueur (stockage local).
 
 <br> Le jeu s'arrète lorsque le serpent se cogne : 
-  <br> >  l'obstacle (son spécial pour cet évenement).
+  <br> >  l'obstacle gris (son spécial pour cet évenement).
   <br> >  les extrimités du terrain du jeu / les murs (son spécial pour cet évenement). 
   <br> >  lui-meme (son spécial pour cet évenement). 
            
