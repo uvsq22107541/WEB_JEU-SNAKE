@@ -10,7 +10,7 @@ Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pomme
 
 <br> En l’occurrence quand le serpent passe sur : 
   <br> > une pomme verte, il s'étend en vert + augmentation du score avec 1 point + son spécial pour cet évenement.
-  <br> > une pomme bleue, il s'étend en bleu + augmentation du score avec 5 point + son spécial pour cet évenement.
+  <br> > une pomme bleue, il s'étend en bleu + augmentation du score avec 5 points + son spécial pour cet évenement.
   <br> > une pomme rouge, il s'étend en rouge + diminution du score avec 1 point + son spécial pour cet évenement.
 <br> PS: le meilleure score est aussi enregistré pour le joueur (stockage local).
 
@@ -54,13 +54,15 @@ Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pomme
      ```
 
 3. #### Serveur (taper dans le terminal)
+   - ####
 
       ```
       node index.js 
       ```
 
 4. #### Client (taper dans le Navigateur)
-
+   - ####
+   
       ```
       http://localhost:3001/ 
       ```
