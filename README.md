@@ -32,7 +32,7 @@ Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pomme
      node -v
      ```
 
-     #### Cela affichera la version de notre Node JS (v16.14.0 pour moi)
+     #### Cela affichera la version de Node JS (exemple, v16.14.0)
 
 2. #### NPM
 
@@ -62,7 +62,7 @@ Dans une scène 2D, le joueur dirige un serpent vers des points objectifs (pomme
 
 4. #### Client (taper dans le Navigateur)
    - ####
-   
+
       ```
       http://localhost:3001/ 
       ```
