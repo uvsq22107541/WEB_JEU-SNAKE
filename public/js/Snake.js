@@ -2,15 +2,15 @@
 /* ------------------------------------ Classe Principale --------------------------------------------*/
 
 var highscore =0;
+//var meilleurtemps = 1000;
 
 export default class Snake {
-
   /** ------------------------------------ 1 ----------------------------------------------------------- 
    * Le constructeur prend la scene du jeu et l'initialise avec les différents éléments du jeu (serpent, 
    * pommes, obstacles) 
   -----------------------------------------------------------------------------------------------------*/
   constructor(scene) {
-    // initialisationd ela scène
+    // initialisation de la scène
     this.scene = scene;
     /* initialisation de la variable stockant le dernier mouvement du serpent à 0, pour faire la mise à 
     jour des mouvements du serpent à chaque instant*/
@@ -56,17 +56,42 @@ export default class Snake {
 
     //-----------------------------------------------SCORE---------------------------------------------
     this.score = 0
-    this.scoreText = this.scene.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: 'white' });
+    this.scoreText = this.scene.add.text(20, 16, 'score: 0', { fontSize: '32px Arial', fill: 'white' });
     
-    this.highScoreText = this.scene.add.text(200, 16, 'HS: ' + localStorage.getItem("highscore"), {
+    this.highScoreText = this.scene.add.text(210, 16, 'HS: ' + localStorage.getItem("highscore"), {
       font: '25px Arial',
       fill: 'white'
     });
+
+    //this.temps = new Date().getSeconds;
+    this.temps = 0
+    this.tempsText = this.scene.add.text(480, 16, 'temps: 0', { fontSize: '32px Arial', fill: 'white' });
+
+    /*
+    this.meilleurTempsText = this.scene.add.text(210, 40, 'MT: ' + localStorage.getItem("meilleurtemps"), {
+      font: '25px Arial',
+      fill: 'white'
+    });
+    */
+    this.nbvert = 0
+    this.nbvertText = this.scene.add.text(20, 40, ' Vertes: 0', { fontSize: '32px Arial', fill: 'green' });
+
+    this.nbbleu = 0
+    this.nbbleuText = this.scene.add.text(180, 40, ' Bleues: 0', { fontSize: '32px Arial', fill: 'blue' });
+
+    this.nbrouge = 0
+    this.nbrougeText = this.scene.add.text(350, 40, ' Rouges: 0', { fontSize: '32px Arial', fill: 'red' });
+
+    this.nbtotal = 0
+    this.nbtotalText = this.scene.add.text(510, 40, ' Total: 0', { fontSize: '32px Arial', fill: 'white' });
+
      //-------------------------------------------------------------------------------------------------
     // initialisation de la position initiale de la pomme verte, bleue, rouge et l'obstacle alétoirement
     this.positionApple();
     this.positionAppleBlue();
     this.positionAppleRouge();
+    //setTimeout(this.detruirepommerouge(), 7000);
+    //this.scene.time.events.add(Phaser.Timer.SECOND * 4, detruirepommerouge, this);
     //setTimeout(positionAppleRouge(), 10); 
     this.positionobstacle();
 
@@ -117,6 +142,11 @@ export default class Snake {
     if (time >= this.lastMoveTime + this.moveInterval) {
       this.lastMoveTime = time;
       this.move();
+      this.temps += 1;
+
+      this.tempsText.setText('Temps: ' + this.temps);
+      //setTimeout(this.detruirepommerouge(), 7000);
+
     }
 
     //---------------------------------------SCORE-----------------------------------------------------
@@ -127,7 +157,23 @@ export default class Snake {
       if (this.score >= localStorage.getItem("highscore")) {
         localStorage.setItem("highscore", this.score);
       }
-    } 
+    }  
+
+    this.nbvertText.setText('Vertes : ' + this.nbvert);
+    this.nbbleuText.setText('Bleues : ' + this.nbbleu);
+    this.nbrougeText.setText('Rouges : ' + this.nbrouge);
+    this.nbtotalText.setText('Total : ' + this.nbtotal);
+    /*
+    this.meilleurTempsText.text = 'Meilleur Temps: ' + localStorage.getItem("meilleurtemps");
+    {
+      if (this.temps <= localStorage.getItem("meilleurtemps")) {
+     // if (localStorage.getItem("meilleurtemps") >= this.temps) {
+        localStorage.setItem("meilleurtemps", this.temps);
+      } else this.temps == localStorage.getItem("meilleurtemps");
+    }
+    */
+
+    
     //-----------------------------------------------------------------------------------------------   
   }
 
@@ -157,8 +203,16 @@ export default class Snake {
     this.applerouge.y =
       Math.floor((Math.random() * this.scene.game.config.height) / this.tileSize) * this.tileSize;
       //setTimeout(positionAppleRouge,2000);
+      //this.scene.time.addEvent(Phaser.Timer.SECOND * 4, detruirepommerouge, this);
+      
+      //this.scene.time.addEvent({delay: 4000, loop: false, 
+        //callback: (event) => {this.scene.events.emit('detruirepommerouge')}});
     }
 
+    detruirepommerouge () {
+      this.applerouge.destroy();
+  
+  }
   /** 4.4 Méthode pour Générer une position aléatoire (x,y) pour l'obstacle avec le module Math **/
   positionobstacle() {
     this.obstacle.x =
@@ -166,6 +220,8 @@ export default class Snake {
     this.obstacle.y =
       Math.floor((Math.random() * this.scene.game.config.height) / this.tileSize) * this.tileSize;
   }
+
+
 // -----------------------------------------------------------------------------------------------------
  
 
@@ -190,6 +246,8 @@ export default class Snake {
       this.add = false;
       //-----------------------------------SCORE POMME VERTE +1 --------------------------------------
       this.score += 1;
+      this.nbvert += 1;
+      this.nbtotal += 1;
       //----------------------------------------------------------------------------------------------
       //-----------------------------------SON POMME VERTE -------------------------------------------
       let audio = new Audio("son/1pt.wav");
@@ -197,6 +255,8 @@ export default class Snake {
       //----------------------------------------------------------------------------------------------
       // générer une nouvelle pomme
       this.positionApple();
+      //---------------setTimeout(function(){console.log("j'attends 9 seconds");},9000);
+      ///--------------this.applerouge.destroy();
     }
 
      /* si les cordonnées de la tete du serpent sont égales aux cordonnéEs de la pomme bleue
@@ -206,6 +266,8 @@ export default class Snake {
       this.add = false;
       //-----------------------------------SCORE POMME BLEUE +5 --------------------------------------
       this.score += 5;
+      this.nbbleu += 1; 
+      this.nbtotal += 1;
       //----------------------------------------------------------------------------------------------
       //-----------------------------------SON POMME BLEUE -------------------------------------------
       let audio = new Audio("son/5pts.mp3");
@@ -222,6 +284,8 @@ export default class Snake {
       this.add = false;
       //-----------------------------------SCORE POMME ROUGE -1 --------------------------------------
       this.score -= 1;
+      this.nbrouge += 1;
+      this.nbtotal += 1;
       //----------------------------------------------------------------------------------------------
       //-----------------------------------SON POMME ROUGE -------------------------------------------
       let audio = new Audio("son/death.wav");
@@ -256,6 +320,7 @@ export default class Snake {
       //----------------------------------------------------------------------------------------------
       // relancer le jeu
       this.scene.scene.restart();
+      
     }
 
     //Vérifier la taille du serpent (begin,end-1)
@@ -285,5 +350,7 @@ export default class Snake {
       this.scene.scene.restart();
     }
   }
+  //end = new Date().getTime();
+  //time = end - start;
 }
-
+//performance.mark("end-script")
