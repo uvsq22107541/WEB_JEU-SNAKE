@@ -2,7 +2,7 @@
 
 ## <u> INTERFACE 💻</u>
 
-![Interfece de l'application](__SNAKE__README.png)
+![Interfece de l'application](__SNAKE__README.PNG)
 
 ## <u> PRINCIPE DU JEU 💻</u> 
 
